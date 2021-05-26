@@ -10,5 +10,7 @@ module JavaFxApplication {
 
     exports  sample;
     exports sample.models;
+    exports sample.controllers;
+    opens sample.controllers to javafx.fxml;
 
 }
