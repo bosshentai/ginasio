@@ -19,7 +19,7 @@
                     onAction="#swichMain"
             />
 
-            <Label text="Registar Plano de Treino" textFill="black">
+            <Label text="Registar Tipos de Desconto" textFill="Black">
                 <font>
                     <Font name="Roboto bold" size="34"/>
                 </font>
@@ -76,13 +76,13 @@
 
 
     <bottom>
-      <HBox
-      alignment="BOTTOM_RIGHT">
-          <Button
-                  translateX="-40"
-                  translateY="-40"
-                  text="Registar"/>
-      </HBox>
+        <HBox
+                alignment="BOTTOM_RIGHT">
+            <Button
+                    translateX="-40"
+                    translateY="-40"
+                    text="Registar"/>
+        </HBox>
 
 
     </bottom>

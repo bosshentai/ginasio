@@ -1,11 +1,11 @@
-<?import javafx.geometry.Insets?>
+
 <?import javafx.scene.layout.GridPane?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <GridPane fx:controller="sample.controllers.MainController"
           xmlns:fx="http://javafx.com/fxml"  hgap="10" vgap="10">
 
-    <Button fx:id="" text="Registar Plano de Treino" onAction="#switchTrainingPlan"/>
+    <Button  text="Registar Plano de Treino" onAction="#switchTrainingPlan"/>
+    <Button  text="Registar Desconto" onAction="#switchDiscount"/>
 
 </GridPane>

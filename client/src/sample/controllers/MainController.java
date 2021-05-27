@@ -12,4 +12,9 @@ public class MainController {
     private void switchTrainingPlan() throws IOException{
         Main.setRoot("registerTrainningPlan");
     }
+
+    @FXML
+    private void switchDiscount() throws  IOException{
+        Main.setRoot("registerDesconto");
+    }
 }

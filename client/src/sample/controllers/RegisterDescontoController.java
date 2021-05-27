@@ -5,10 +5,11 @@ import sample.Main;
 
 import java.io.IOException;
 
-public class RegisterTrainningPlan {
+public class RegisterDescontoController {
 
     @FXML
     private void swichMain() throws IOException{
         Main.setRoot("index");
     }
+
 }
