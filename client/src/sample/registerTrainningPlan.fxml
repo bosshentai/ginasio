@@ -6,9 +6,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.text.Font?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="sample.controllers.RegisterTrainningPlan"
             prefHeight="400.0" prefWidth="600.0">
 
+
+    <Label text="Registro do Plano Treino" alignment="CENTER">
+        <font>
+            <Font name="bold" size="40"/>
+        </font>
+    </Label>
 </AnchorPane>
