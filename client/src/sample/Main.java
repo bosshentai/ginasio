@@ -5,21 +5,33 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import sample.models.PlanoTreino;
+
+import java.io.IOException;
+
 
 public class Main extends Application {
 
+    private static Scene scene;
+
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("registerTrainningPlan.fxml"));
-        primaryStage.setTitle("Ginasio");
-        primaryStage.setScene(new Scene(root, 800, 600));
-        primaryStage.show();
+    public void start(Stage stage) throws Exception {
+
+    scene = new Scene(loadFXML("registerTrainningPlan"),800,600);
+    stage.setScene(scene);
+    stage.show();
     }
 
+    public static void setRoot(String fxml) throws IOException{
+        scene.setRoot(loadFXML(fxml));
+    }
+
+    private static Parent loadFXML(String fxml) throws IOException {
+    FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml+ ".fxml"));
+    return fxmlLoader.load();
+    }
 
     public static void main(String[] args) {
-        launch(args);
+        launch();
     }
 
 

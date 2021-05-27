@@ -7,15 +7,37 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.text.Font?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.controllers.RegisterTrainningPlan"
-            prefHeight="400.0" prefWidth="600.0">
+<BorderPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="sample.controllers.RegisterTrainningPlan"
 
-
-    <Label text="Registro do Plano Treino" alignment="CENTER">
+>
+<top>
+    <Label text="Registar Plano de Treino"  textFill="black"  GridPane.rowIndex="0" GridPane.columnIndex="0">
         <font>
             <Font name="bold" size="40"/>
         </font>
     </Label>
-</AnchorPane>
+</top>
+    <center>
+    <Label text="Nome" >
+        <font>
+            <Font size="10"/>
+        </font>
+    </Label>
+
+    <TextField fx:id="name" promptText="Insira o seu nome" />
+
+    <Label text="Descrição" GridPane.rowIndex="3" >
+        <font>
+            <Font size="10"/>
+        </font>
+    </Label>
+        <TextField fx:id="descrition" promptText="Insira o seu nome" />
+    </center>
+
+
+<bottom>
+
+</bottom>
+</BorderPane>
