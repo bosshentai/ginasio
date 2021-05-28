@@ -6,6 +6,8 @@ public class Ginasio {
 
     private String name;
 
+    private PlanoTreino planoTreino;
+
     private ArrayList<PlanoTreino> planoTreinos;
 
 
@@ -17,7 +19,11 @@ public class Ginasio {
         return name;
     }
 
-        public void addPlanoTreino(PlanoTreino plano){
+    public void setPlanoTreino(PlanoTreino planoTreino) {
+        this.planoTreino = planoTreino;
+    }
+
+    public void addPlanoTreino(PlanoTreino plano){
         this.planoTreinos.add(plano);
     }
 }

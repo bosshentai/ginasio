@@ -13,7 +13,7 @@ import java.util.List;
 public class RegisterTrainningPlan {
 
     private PlanoTreino plano;
-    private Ginasio ginasio;
+   // private Ginasio ginasio;
 
     @FXML
     private TextField name;
@@ -36,13 +36,18 @@ public class RegisterTrainningPlan {
 
     @FXML
     private void registerTrainnig() throws IOException{
+
        plano = new PlanoTreino(name.getText(),descrition.getText(),Float.parseFloat(amount.getText()));
         System.out.println("nome: " + plano.getName() + " descricao: "+ plano.getDescrition() + " amount:"  + plano.getAmount());
-        ginasio.addPlanoTreino(plano);
+     //   setPlanoTreino(plano);
+        //addPlanoTreino(plano);
+      //  ginasio.addPlanoTreino(plano);
+    //    System.out.println(ginasio.getName());
+
         Main.setRoot("index");
+
     }
 
-//    public PlanoTreino getPlano(){
-//        return this.plano;
-//    }
-}
+    }
+
+
