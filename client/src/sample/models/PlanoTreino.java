@@ -1,23 +1,21 @@
 package sample.models;
 
+
+
 public class PlanoTreino {
 
 
     private String name;
     private String descrition;
-    private float amount;
+    private int  amount;
 
-    public PlanoTreino(String name,String descrition){
-        this.name = name;
-        this.descrition = descrition;
-    }
-
-    public PlanoTreino(String name,String descrition,float amount){
-
+    public PlanoTreino(String name, String descrition, int amount){
         this.name = name;
         this.descrition = descrition;
         this.amount = amount;
     }
+
+
 
     public String getName() {
         return name;
@@ -27,7 +25,7 @@ public class PlanoTreino {
         return descrition;
     }
 
-    public float getAmount() {
+    public int getAmount() {
         return amount;
     }
 }

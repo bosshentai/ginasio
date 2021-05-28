@@ -6,11 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import sample.data.Datasource;
-import sample.models.Ginasio;
 
 import java.io.IOException;
-import java.nio.file.FileSystems;
-import java.nio.file.Path;
 
 
 public class Main extends Application {
@@ -36,13 +33,27 @@ public class Main extends Application {
     return fxmlLoader.load();
     }
 
+    @Override
+    public void init() throws Exception {
+        super.init();
+        if(!Datasource.getInstance().open()){
+            System.out.println("Fatal Error: Couldnt connect to database;");
+        }
+    }
+
+    @Override
+    public void stop() throws Exception {
+        super.stop();
+        Datasource.getInstance().close();
+    }
+
     public static void main(String[] args) {
 
-        Datasource datasource = new Datasource();
-        if(!datasource.open()){
-            System.out.println("Cant open datasource");
-            return;
-        }
+//        PlanoTreinoSource datasource = new PlanoTreinoSource();
+//        if(!datasource.open()){
+//            System.out.println("Cant open datasource");
+//            return;
+//        }
 //        Path path = FileSystems.getDefault().getPath("").toAbsolutePath();
 //        System.out.println(path);
 

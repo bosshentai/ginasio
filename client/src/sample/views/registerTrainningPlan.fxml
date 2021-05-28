@@ -56,7 +56,9 @@
                       translateY="-80"
                       maxWidth="700"
 
-                      promptText="Escreve uma breve Descrição"/>
+                      promptText="Escreve uma breve Descrição">
+
+            </TextArea>
             <Label text="Preço"
                    translateX="30"
                    translateY="-50">
