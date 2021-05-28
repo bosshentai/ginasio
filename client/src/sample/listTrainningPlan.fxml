@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="sample.controllers.ListTrainnigPlanController"
+            prefHeight="400.0" prefWidth="600.0">
+    <top>
+        <HBox alignment="CENTER">
+            <Button
+                    translateX="170"
+                    text="back"/>
+            <Label>
+                <font>
+                    <Font name="bold" size="34"/>
+                </font>
+            </Label>
+        </HBox>
+    </top>
+    <center>
+        <TableView fx:id="trainningPlanTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn prefWidth="50.0" text="Name">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="name"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+
+    </center>
+    <right>
+        <VBox alignment="BASELINE_RIGHT">
+            <Button text="Atualizar"/>
+        </VBox>
+    </right>
+    <bottom>
+        <HBox alignment="BOTTOM_RIGHT">
+            <Button
+                    translateX="-40"
+                    translateY="-40"
+                    text="Registar"
+        </HBox>
+    </bottom>
+</BorderPane>

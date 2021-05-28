@@ -6,6 +6,8 @@
 
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.text.TextFlow?>
+<?import com.sun.javafx.scene.control.IntegerField?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="sample.controllers.RegisterTrainningPlan"
@@ -81,7 +83,8 @@
           <Button
                   translateX="-40"
                   translateY="-40"
-                  text="Registar"/>
+                  text="Registar"
+          onAction="#registerTrainnig"/>
       </HBox>
 
 

@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import sample.models.Ginasio;
 
 import java.io.IOException;
 
@@ -15,6 +16,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+
+
 
     scene = new Scene(loadFXML("index"),800,600);
     stage.setScene(scene);
@@ -34,8 +37,11 @@ public class Main extends Application {
         launch();
     }
 
+    Ginasio ginasio = new Ginasio();
 
-    //PlanoTreino teste1 = new PlanoTreino("name", "id", 1231);
+
+
+
 
 
 }

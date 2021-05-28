@@ -2,10 +2,14 @@
 <?import javafx.scene.layout.GridPane?>
 
 <?import javafx.scene.control.Button?>
-<GridPane fx:controller="sample.controllers.MainController"
-          xmlns:fx="http://javafx.com/fxml"  hgap="10" vgap="10">
-
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<BorderPane fx:controller="sample.controllers.IndexController"
+            xmlns:fx="http://javafx.com/fxml" >
+<center>
+    <HBox>
     <Button  text="Registar Plano de Treino" onAction="#switchTrainingPlan"/>
     <Button  text="Registar Desconto" onAction="#switchDiscount"/>
-
-</GridPane>
+    </HBox>
+</center>
+</BorderPane>

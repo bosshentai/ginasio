@@ -6,7 +6,7 @@ import sample.Main;
 
 import java.io.IOException;
 
-public class MainController {
+public class IndexController {
 
     @FXML
     private void switchTrainingPlan() throws IOException{

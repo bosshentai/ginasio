@@ -8,7 +8,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.controllers.RegisterTrainningPlan"
+            fx:controller="sample.controllers.RegisterDescontoController"
 
 >
     <top>
@@ -81,7 +81,9 @@
             <Button
                     translateX="-40"
                     translateY="-40"
-                    text="Registar"/>
+                    text="Registar"
+                    onAction="#registeDiscount"
+            />
         </HBox>
 
 
