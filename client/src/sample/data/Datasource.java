@@ -4,8 +4,8 @@ import java.sql.*;
 
 public class Datasource {
     public static final String DB_NAME = "ginasio.db";
-    public static final String PATCH = "../sample/";
-    public static final String CONNECTION_STRING = "jdbc:" + PATCH + DB_NAME;
+    public static final String PATCH = "./src/";
+    public static final String CONNECTION_STRING = "jdbc:sqlite:" + PATCH + DB_NAME;
 
     private Connection conn;
 
