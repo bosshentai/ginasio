@@ -2,7 +2,11 @@ package sample.data;
 
 
 
+import sample.models.PlanoTreino;
+
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Datasource {
     protected static final String DB_NAME = "ginasio.db";
@@ -10,15 +14,31 @@ public class Datasource {
     protected static final String CONNECTION_STRING = "jdbc:sqlite:" + PATCH + DB_NAME;
 
     private static final String TABLE_PLANOTREINO = "planoTreino";
+  //  private static final String COLUMN_PLANOTREINO_ID = "_id";
     private static final String COLUMN_PLANOTREINO_NAME = "name";
     private static final String COLUMN_PLANOTREINO_DESCRITION = "descrition";
     private static final String COLUMN_PLANOTREINO_AMOUNT = "amount";
+    private static final int INDEX_PLANOTREINO_ID = 1;
+    private static final int INDEX_PLANOTREINO_NAME = 2;
+    private static final int INDEX_PLANOTREINO_DESCRITION = 3;
+    private static final int INDEX_PLANOTREINO_AMOUNT = 4;
+
+    private static final String TABLE_DESCONTO = "desconto";
+    private static final String COLUMN_DESCONTO_NAME = "name";
+    private static final String COLUMN_DESCONTO_DESCRITION = "descrition";
+    private static final String COLUMN_DESCONT_AMOUNT = "amount";
+
 
     public static final String INSERT_PLANOTREINO = "INSERT INTO " + TABLE_PLANOTREINO +
             " (" + COLUMN_PLANOTREINO_NAME + "," + COLUMN_PLANOTREINO_DESCRITION + ","
             + COLUMN_PLANOTREINO_AMOUNT + ") VALUES (?,?,?);";
 
+    public static final String INSERT_DESCONTO = "INSERT INTO " + TABLE_DESCONTO +
+            " (" + COLUMN_DESCONTO_NAME + ", " + COLUMN_DESCONTO_DESCRITION + " ,"
+            + COLUMN_DESCONT_AMOUNT + ") VALUES (?,?,?);";
+
     private PreparedStatement insertPlanoTreino;
+    private PreparedStatement insertDesconto;
 
     protected Connection conn;
 
@@ -36,6 +56,7 @@ public class Datasource {
         try {
             conn = DriverManager.getConnection(CONNECTION_STRING);
             insertPlanoTreino = conn.prepareStatement(INSERT_PLANOTREINO);
+            insertDesconto = conn.prepareStatement(INSERT_DESCONTO);
 
             return true;
         } catch (SQLException e) {
@@ -47,6 +68,10 @@ public class Datasource {
     public void close() {
         try {
 
+            if(insertDesconto != null){
+                insertDesconto.close();
+            }
+
             if(insertPlanoTreino != null){
                 insertPlanoTreino.close();
             }
@@ -56,6 +81,32 @@ public class Datasource {
             }
         } catch (SQLException e) {
             System.out.println("Coudn't close connection" + e.getMessage());
+        }
+    }
+
+
+    public List<PlanoTreino> queryPlanoTreino(){
+        StringBuilder sb = new StringBuilder("SELECT * FROM ");
+        sb.append(TABLE_PLANOTREINO);
+
+        try(Statement statement = conn.createStatement();
+        ResultSet results = statement.executeQuery(sb.toString())){
+
+            List<PlanoTreino> planoTreinos = new ArrayList<>();
+
+            while(results.next()){
+                PlanoTreino planoTreino = new PlanoTreino();
+                planoTreino.setId(results.getInt(INDEX_PLANOTREINO_ID));
+                planoTreino.setName(results.getString(INDEX_PLANOTREINO_NAME));
+                planoTreino.setDescrition(results.getString(INDEX_PLANOTREINO_DESCRITION));
+                planoTreino.setAmount(results.getInt(INDEX_PLANOTREINO_AMOUNT));
+                planoTreinos.add(planoTreino);
+            }
+            return planoTreinos;
+
+        }catch (SQLException e){
+            System.out.println(" Query failed " + e.getMessage());
+            return null;
         }
     }
 
@@ -93,4 +144,35 @@ public class Datasource {
           }
       }
     }
+
+    public void registerDesconto(String name, String descrition,int amount){
+        try{
+            conn.setAutoCommit(false);
+            insertDesconto.setString(1,name);
+
+            int affectedRows = insertDesconto.executeUpdate();
+
+            if(affectedRows ==1){
+                conn.commit();
+            }else{
+                throw new SQLException(" Insert desconto failed!");
+            }
+        }catch (SQLException e){
+            System.out.println(" Insert desconto: " +e.getMessage());
+
+            try{
+                System.out.println("performing rollback");
+                conn.rollback();
+            }catch (SQLException e2){
+                System.out.println(" is bad to get here " + e2.getMessage());
+            }
+        }finally {
+            try {
+                System.out.println("Reseting default commit behavior");
+                conn.setAutoCommit(true);
+            }catch (SQLException e){
+            System.out.println("couldnt default auto-commit" + e.getMessage());}
+        }
+    }
+
 }

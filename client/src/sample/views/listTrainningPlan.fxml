@@ -13,10 +13,12 @@
             fx:controller="sample.controllers.ListTrainnigPlanController"
             prefHeight="400.0" prefWidth="600.0">
     <top>
-        <HBox alignment="CENTER">
+        <HBox alignment="TOP_LEFT">
             <Button
-                    translateX="170"
-                    text="back"/>
+                    translateX="30"
+                    translateY="20"
+                    text="back"
+            onAction="#switchMain"/>
             <Label>
                 <font>
                     <Font name="bold" size="34"/>
@@ -25,12 +27,29 @@
         </HBox>
     </top>
     <center>
-        <TableView fx:id="trainningPlanTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <TableView fx:id="trainningPlanTable"
+                   translateX="30"
+                   translateY="20"
+                   maxHeight="450.0"
+                   maxWidth="400.0"
+                   BorderPane.alignment="BASELINE_LEFT">
             <columns>
-                <TableColumn prefWidth="50.0" text="Name">
+                <TableColumn prefWidth="100.0" text="Name">
                     <cellValueFactory>
                         <PropertyValueFactory property="name"/>
                     </cellValueFactory>
+
+                </TableColumn>
+                <TableColumn prefWidth="100.0" text="Descrição">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="descrition"/>
+                    </cellValueFactory>
+
+                </TableColumn>
+                <TableColumn prefWidth="100.0" text="Preço">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="amount"/>
+                        </cellValueFactory>
                 </TableColumn>
             </columns>
         </TableView>
@@ -38,7 +57,11 @@
     </center>
     <right>
         <VBox alignment="BASELINE_RIGHT">
-            <Button text="Atualizar"/>
+            <Button
+                    translateX="-40"
+                    text="Atualizar"
+                    onAction="#listTranningPlan"
+            />
         </VBox>
     </right>
     <bottom>
@@ -47,6 +70,8 @@
                     translateX="-40"
                     translateY="-40"
                     text="Registar"
+                    onAction="#switchRegistarPlanoTreino"
+            />
         </HBox>
     </bottom>
 </BorderPane>

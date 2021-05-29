@@ -10,7 +10,7 @@
 <?import com.sun.javafx.scene.control.IntegerField?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.controllers.RegisterTrainningPlan"
+            fx:controller="sample.controllers.RegisterTrainningPlanController"
 
 >
     <top>

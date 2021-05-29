@@ -10,7 +10,7 @@ public class IndexController {
 
     @FXML
     private void switchTrainingPlan() throws IOException{
-        Main.setRoot("registerTrainningPlan");
+        Main.setRoot("listTrainningPlan");
     }
 
     @FXML
