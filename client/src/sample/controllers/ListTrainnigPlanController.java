@@ -26,7 +26,8 @@ public class ListTrainnigPlanController {
         Main.setRoot("index");
     }
 
-    @FXML void listTranningPlan(){
+    @FXML
+    private void listTranningPlan(){
         Task<ObservableList<PlanoTreino>> task = new GetAllTrainningPlanTask();
         trainningPlanTable.itemsProperty().bind(task.valueProperty());
 

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -8,7 +10,7 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.controllers.ListTrainnigPlanController"
+            fx:controller="sample.controllers.ListDescontoController"
             prefHeight="400.0" prefWidth="600.0">
     <top>
         <VBox alignment="CENTER">
@@ -16,60 +18,78 @@
                     translateX="-270"
                     translateY="30"
                     text="back"
-            onAction="#switchMain"/>
-            <Label text=" Plano de treino ">
+
+            />
+            <Label text=" Tipos de Desconto">
                 <font>
                     <Font name="bold" size="34"/>
                 </font>
             </Label>
         </VBox>
     </top>
+
     <center>
-        <TableView fx:id="trainningPlanTable"
-                   translateX="30"
-                   translateY="20"
-                   maxHeight="450.0"
-                   maxWidth="400.0"
-                   BorderPane.alignment="BASELINE_LEFT">
+        <TableView
+                fx:id="descontoTable"
+                translateX="30"
+                translateY="20"
+                maxHeight="450.0"
+                maxWidth="400.0"
+                BorderPane.alignment="BASELINE_LEFT"
+        >
             <columns>
-                <TableColumn prefWidth="100.0" text="Nome">
+                <TableColumn
+                        prefWidth="100.0"
+                        text="Nome"
+                >
                     <cellValueFactory>
                         <PropertyValueFactory property="name"/>
                     </cellValueFactory>
-
                 </TableColumn>
-                <TableColumn prefWidth="100.0" text="Descrição">
+                <TableColumn
+                        prefWidth="100.0"
+                        text="Descrição"
+                >
                     <cellValueFactory>
-                        <PropertyValueFactory property="descrition"/>
+                        <PropertyValueFactory property="descrtion"/>
                     </cellValueFactory>
 
                 </TableColumn>
-                <TableColumn prefWidth="100.0" text="Preço">
-                        <cellValueFactory>
-                            <PropertyValueFactory property="amount"/>
-                        </cellValueFactory>
+
+                <TableColumn
+                        prefWidth="100.0"
+                        text="Preço"
+                >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="amount"/>
+                    </cellValueFactory>
+
                 </TableColumn>
             </columns>
-        </TableView>
 
+        </TableView>
     </center>
+
     <right>
         <VBox alignment="BASELINE_RIGHT">
             <Button
                     translateX="-40"
                     text="Atualizar"
-                    onAction="#listTranningPlan"
             />
         </VBox>
     </right>
+
     <bottom>
-        <HBox alignment="BOTTOM_RIGHT">
+        <HBox
+                alignment="BOTTOM_RIGHT"
+        >
             <Button
                     translateX="-40"
                     translateY="-40"
-                    text="Registar"
-                    onAction="#switchRegistarPlanoTreino"
+                    text="Register"
             />
         </HBox>
+
     </bottom>
+
 </BorderPane>

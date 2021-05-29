@@ -33,6 +33,7 @@ public class RegisterDescontoController {
 
         Datasource.getInstance().registerDesconto(desconto.getName(),desconto.getDescrition(),desconto.getAmount());
 
+        Main.setRoot("index");
     }
 
 
