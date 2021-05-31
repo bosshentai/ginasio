@@ -18,7 +18,7 @@
             <Button
                     translateX="-170"
                     text="back"
-                    onAction="#swichMain"
+                    onAction="#swichBack"
             />
 
             <Label text="Registar Plano de Treino" textFill="black">
