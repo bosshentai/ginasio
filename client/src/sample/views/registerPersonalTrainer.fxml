@@ -10,7 +10,7 @@
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="sample.controllers.RegisterPersonalTrainerController"
-           >
+>
 
     <top>
         <HBox alignment="CENTER">
@@ -29,6 +29,53 @@
         </HBox>
     </top>
     <center>
+        <VBox>
+            <HBox
+                    translateX="50"
+                    translateY="50"
+            >
+
+                <VBox>
+
+                    <Label
+                            text="Primeiro Nome"
+                    >
+                        <font>
+                            <Font size="20"/>
+                        </font>
+                    </Label>
+                    <TextField
+                            fx:id="firstName"
+
+                            promptText="Insira o nome do Personal Trainer"
+                    />
+
+
+                </VBox>
+                <VBox alignment="TOP_RIGHT"
+                      translateX="200">
+                    <Label
+                            text="Ultimo Nome"
+                    >
+                        <font>
+                            <Font size="20"/>
+                        </font>
+                    </Label>
+                    <TextField
+                            fx:id="lastName"
+                            translateX="30"
+                            promptText="Insira o ultimo Nome"
+                    />
+                </VBox>
+
+            </HBox>
+
+            <HBox>
+                <Label
+                        text="N BI"
+                ></Label>
+            </HBox>
+        </VBox>
 
     </center>
 
