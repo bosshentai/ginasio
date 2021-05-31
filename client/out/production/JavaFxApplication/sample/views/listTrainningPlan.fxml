@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -34,7 +32,7 @@
                    maxWidth="400.0"
                    BorderPane.alignment="BASELINE_LEFT">
             <columns>
-                <TableColumn prefWidth="100.0" text="Name">
+                <TableColumn prefWidth="100.0" text="Nome">
                     <cellValueFactory>
                         <PropertyValueFactory property="name"/>
                     </cellValueFactory>

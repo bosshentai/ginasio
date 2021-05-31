@@ -56,4 +56,6 @@ public class PlanoTreino {
     public int getAmount() {
         return amount.get();
     }
+
+    //public boolean isEmpty(){}
 }
