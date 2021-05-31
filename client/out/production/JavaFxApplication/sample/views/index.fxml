@@ -8,8 +8,8 @@
             xmlns:fx="http://javafx.com/fxml" >
 <center>
     <HBox>
-    <Button  text="Registar Plano de Treino" onAction="#switchTrainingPlan"/>
-    <Button  text="Registar Desconto" onAction="#switchDiscount"/>
+    <Button  text="Lista de Plano de Treino" onAction="#switchTrainingPlan"/>
+    <Button  text="Lista de Desconto " onAction="#switchDiscount"/>
     </HBox>
 </center>
 </BorderPane>
