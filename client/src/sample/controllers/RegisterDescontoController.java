@@ -50,8 +50,8 @@ public class RegisterDescontoController {
 
 
         if(!name.getText().isEmpty() && !descrition.getText().isEmpty() && !amount.getText().isEmpty()){
-            System.out.println("nome " + name.getText() + " descrition " + descrition.getText() +  " int: "
-                    + amount.getText());
+//            System.out.println("nome " + name.getText() + " descrition " + descrition.getText() +  " int: "
+//                    + amount.getText());
 
            final Desconto desconto = new Desconto(name.getText(),descrition.getText(),Integer.parseInt(amount.getText()));
 
