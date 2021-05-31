@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="sample.controllers.ListDescontoController"
+            prefHeight="400.0" prefWidth="600.0">
+    <top>
+        <VBox alignment="CENTER">
+            <Button
+                    translateX="-270"
+                    translateY="30"
+                    text="back"
+                    onAction="#switchMain"
+            />
+            <Label text=" Tipos de Desconto">
+                <font>
+                    <Font name="bold" size="34"/>
+                </font>
+            </Label>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView
+                fx:id="descontoTable"
+                translateX="30"
+                translateY="20"
+                maxHeight="450.0"
+                maxWidth="400.0"
+                BorderPane.alignment="BASELINE_LEFT"
+        >
+            <columns>
+                <TableColumn
+                        prefWidth="100.0"
+                        text="Nome"
+                >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="name"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn
+                        prefWidth="100.0"
+                        text="Descrição"
+                >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="descrition"/>
+                    </cellValueFactory>
+
+                </TableColumn>
+
+                <TableColumn
+                        prefWidth="100.0"
+                        text="Preço"
+                >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="amount"/>
+                    </cellValueFactory>
+
+                </TableColumn>
+            </columns>
+
+        </TableView>
+    </center>
+
+    <right>
+        <VBox alignment="BASELINE_RIGHT">
+            <Button
+                    translateX="-40"
+                    text="Atualizar"
+                    onAction="#listDesconto"
+            />
+        </VBox>
+    </right>
+
+    <bottom>
+        <HBox
+                alignment="BOTTOM_RIGHT"
+        >
+            <Button
+                    translateX="-40"
+                    translateY="-40"
+                    text="Register"
+                    onAction="#switchRegistarDescont"
+            />
+        </HBox>
+
+    </bottom>
+
+</BorderPane>
