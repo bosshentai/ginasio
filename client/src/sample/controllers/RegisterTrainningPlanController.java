@@ -1,6 +1,6 @@
 package sample.controllers;
 
-import java.util.*;
+
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -19,8 +19,6 @@ import javafx.scene.control.Alert.AlertType;
 public class RegisterTrainningPlanController {
 
 
-//   @FXML
-//   private AlertType alertType;
 
     @FXML
     private TextField name;
@@ -56,18 +54,14 @@ public class RegisterTrainningPlanController {
         // System.out.println("nome: " +  name.getText() + " descrition: " + descrition.getText() + " float: " +amount.getText());
 
         if (!name.getText().isEmpty() && !descrition.getText().isEmpty() && !amount.getText().isEmpty()) {
-            System.out.println("nome: " + name.getText() + " descrition: " + descrition.getText() + " float: " + amount.getText());
+    //        System.out.println("nome: " + name.getText() + " descrition: " + descrition.getText() + " float: " + amount.getText());
+            final   PlanoTreino planoTreino = new PlanoTreino(name.getText(), descrition.getText(), Integer.parseInt(amount.getText()));
+            Datasource.getInstance().registerPlanoTreino(planoTreino.getName(), planoTreino.getDescrition(), planoTreino.getAmount());
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setHeaderText("O registro foi feito com sucesso");
             alert.showAndWait();
 
-      //      System.out.println("Alert choose: " + alert.getButtonTypes());
 
-            PlanoTreino planoTreino = new PlanoTreino(name.getText(), descrition.getText(), Integer.parseInt(amount.getText()));
-
-      //      System.out.println("Object planoTreino  nome: " + planoTreino.getName() + " descrition: " + planoTreino.getDescrition() + " amount: " + planoTreino.getAmount());
-
-            Datasource.getInstance().registerPlanoTreino(planoTreino.getName(), planoTreino.getDescrition(), planoTreino.getAmount());
 
             Main.setRoot("listTrainningPlan");
         }

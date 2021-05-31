@@ -15,6 +15,6 @@ public class IndexController {
 
     @FXML
     private void switchDiscount() throws  IOException{
-        Main.setRoot("registerDesconto");
+        Main.setRoot("listDesconto");
     }
 }

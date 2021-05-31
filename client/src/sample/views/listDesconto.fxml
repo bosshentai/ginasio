@@ -18,7 +18,7 @@
                     translateX="-270"
                     translateY="30"
                     text="back"
-
+                    onAction="#switchMain"
             />
             <Label text=" Tipos de Desconto">
                 <font>
@@ -51,7 +51,7 @@
                         text="Descrição"
                 >
                     <cellValueFactory>
-                        <PropertyValueFactory property="descrtion"/>
+                        <PropertyValueFactory property="descrition"/>
                     </cellValueFactory>
 
                 </TableColumn>
@@ -75,6 +75,7 @@
             <Button
                     translateX="-40"
                     text="Atualizar"
+                    onAction="#listDesconto"
             />
         </VBox>
     </right>
@@ -87,6 +88,7 @@
                     translateX="-40"
                     translateY="-40"
                     text="Register"
+                    onAction="#switchRegistarDescont"
             />
         </HBox>
 
