@@ -34,6 +34,14 @@ public class Datasource {
     private static final int INDEX_DESCONTO_DESCRITION = 3;
     private static final int INDEX_DESCONTO_AMOUNT = 4;
 
+    private static final String TABLE_PERSONALTRAINER = "personalTrainer";
+    public static final String COLUMN_PERSONALTRAINER_ID = "_id";
+    public static final String COLUMN_PERSONALTRAINER_FIRSTNAME = "firstName";
+    public static final String COLUMN_PERSONALTRAINER_LASTNAME =  "lastName";
+    public static final String COLUMN_PERSONALTRAINER_PHONENUMBER = "phoneNumber";
+    public static final String COLUMN_PERSONALTRAINER_NUMBERBI = "numberBI";
+    public static final String COLUMN_PERSONALTRAINER_AMOUNT = "amount";
+
 
     public static final String INSERT_PLANOTREINO = "INSERT INTO " + TABLE_PLANOTREINO +
             " (" + COLUMN_PLANOTREINO_NAME + "," + COLUMN_PLANOTREINO_DESCRITION + ","
@@ -42,6 +50,11 @@ public class Datasource {
     public static final String INSERT_DESCONTO = "INSERT INTO " + TABLE_DESCONTO +
             " (" + COLUMN_DESCONTO_NAME + ", " + COLUMN_DESCONTO_DESCRITION + " ,"
             + COLUMN_DESCONTO_AMOUNT + ") VALUES (?,?,?);";
+
+    public static final String INSERT_PERSONALTRAINER = "INSERT INTO " + TABLE_PERSONALTRAINER +
+            "( " + COLUMN_PERSONALTRAINER_FIRSTNAME + "," + COLUMN_PERSONALTRAINER_LASTNAME + ","
+            + COLUMN_PERSONALTRAINER_PHONENUMBER + ", " + COLUMN_PERSONALTRAINER_NUMBERBI + ","
+            + COLUMN_PERSONALTRAINER_AMOUNT + ") VALUES (?,?,?,?,?)";
 
     private PreparedStatement insertPlanoTreino;
     private PreparedStatement insertDesconto;

@@ -17,6 +17,7 @@
             <Button
                     translateX="-170"
                     text="back"
+                    onAction="#swichBack"
             />
             <Label
                     text="Registar Personal Trainer"
@@ -30,53 +31,111 @@
     </top>
     <center>
         <VBox>
-        <HBox
-                translateX="50"
-                translateY="50"
-        >
+            <HBox
+                    translateX="50"
+                    translateY="50"
+            >
 
-            <VBox>
+                <VBox>
 
-                <Label
-                        text="Primeiro Nome"
-                >
-                    <font>
-                        <Font size="20"/>
-                    </font>
-                </Label>
-                <TextField
-                        fx:id="firstName"
+                    <Label
+                            text="Primeiro Nome"
+                    >
+                        <font>
+                            <Font size="20"/>
+                        </font>
+                    </Label>
+                    <TextField
+                            fx:id="firstName"
 
-                        promptText="Insira o nome do Personal Trainer"
-                />
+                            promptText="Insira o nome do Personal Trainer"
+                    />
 
 
-            </VBox>
-            <VBox alignment="TOP_RIGHT"
-                  translateX="200">
-                <Label
-                        text="Ultimo Nome"
-                >
-                    <font>
-                        <Font size="20"/>
-                    </font>
-                </Label>
-                <TextField
-                        fx:id="lastName"
-                        translateX="30"
-                        promptText="Insira o ultimo Nome"
-                />
-            </VBox>
+                </VBox>
+                <VBox alignment="TOP_RIGHT"
+                      translateX="200">
+                    <Label
+                            text="Ultimo Nome"
+                    >
+                        <font>
+                            <Font size="20"/>
+                        </font>
+                    </Label>
+                    <TextField
+                            fx:id="lastName"
+                            translateX="30"
+                            promptText="Insira o ultimo Nome"
+                    />
+                </VBox>
 
-        </HBox>
+            </HBox>
 
-            <HBox>
-                <Label
-                        text="N BI"
-                ></Label>
+            <HBox
+                    translateX="50"
+                    translateY="100">
+                <VBox>
+                    <Label
+                            text="N BI"
+                    >
+                        <font>
+                            <Font size="20"/>
+                        </font>
+                    </Label>
+                    <TextField
+                            fx:id="nBI"
+
+                            promptText="Insira o numero de BI Personal Trainer"
+                    />
+                </VBox>
+                <VBox alignment="TOP_RIGHT"
+                      translateX="200">
+                    <Label
+                            translateX="-40"
+                            text="Telefone"
+                    >
+                        <font>
+                            <Font size="20"/>
+                        </font>
+                    </Label>
+                    <TextField
+                            fx:id="phone"
+                            translateX="30"
+                            promptText="Insira o ultimo Nome"
+                    />
+                </VBox>
+            </HBox>
+
+            <HBox
+                    translateX="50"
+                    translateY="150">
+                <VBox>
+                    <Label text="Preço">
+                        <font>
+                            <Font size="20"/>
+                        </font>
+                    </Label>
+                    <TextField
+                            fx:id="amount"
+                            promptText="Insira o valor"
+
+                    />
+                </VBox>
             </HBox>
         </VBox>
 
     </center>
+    <bottom>
+        <HBox
+        alignment="BOTTOM_RIGHT">
+            <Button
+                    translateX="-40"
+                    translateY="-40"
+                    text="Registar"
+                    onAction="#registerPersonalTrainer"
+            />
 
+
+        </HBox>
+    </bottom>
 </BorderPane>
