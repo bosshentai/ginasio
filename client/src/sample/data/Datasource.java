@@ -1,7 +1,6 @@
 package sample.data;
 
 
-
 import sample.models.Desconto;
 import sample.models.PlanoTreino;
 
@@ -37,7 +36,7 @@ public class Datasource {
     private static final String TABLE_PERSONALTRAINER = "personalTrainer";
     public static final String COLUMN_PERSONALTRAINER_ID = "_id";
     public static final String COLUMN_PERSONALTRAINER_FIRSTNAME = "firstName";
-    public static final String COLUMN_PERSONALTRAINER_LASTNAME =  "lastName";
+    public static final String COLUMN_PERSONALTRAINER_LASTNAME = "lastName";
     public static final String COLUMN_PERSONALTRAINER_PHONENUMBER = "phoneNumber";
     public static final String COLUMN_PERSONALTRAINER_NUMBERBI = "numberBI";
     public static final String COLUMN_PERSONALTRAINER_AMOUNT = "amount";
@@ -58,16 +57,17 @@ public class Datasource {
 
     private PreparedStatement insertPlanoTreino;
     private PreparedStatement insertDesconto;
+    private PreparedStatement insertPersonalTrainer;
 
     protected Connection conn;
 
     protected static Datasource instance = new Datasource();
 
-    protected Datasource(){
+    protected Datasource() {
 
     }
 
-    public static Datasource getInstance(){
+    public static Datasource getInstance() {
         return instance;
     }
 
@@ -76,6 +76,7 @@ public class Datasource {
             conn = DriverManager.getConnection(CONNECTION_STRING);
             insertPlanoTreino = conn.prepareStatement(INSERT_PLANOTREINO);
             insertDesconto = conn.prepareStatement(INSERT_DESCONTO);
+            insertPersonalTrainer = conn.prepareStatement(INSERT_PERSONALTRAINER);
 
             return true;
         } catch (SQLException e) {
@@ -87,11 +88,15 @@ public class Datasource {
     public void close() {
         try {
 
-            if(insertDesconto != null){
+            if (insertPersonalTrainer != null) {
+                insertPersonalTrainer.close();
+            }
+
+            if (insertDesconto != null) {
                 insertDesconto.close();
             }
 
-            if(insertPlanoTreino != null){
+            if (insertPlanoTreino != null) {
                 insertPlanoTreino.close();
             }
 
@@ -104,16 +109,16 @@ public class Datasource {
     }
 
 
-    public List<Desconto> queryDesconto(){
+    public List<Desconto> queryDesconto() {
         StringBuilder sb = new StringBuilder("SELECT * FROM ");
         sb.append(TABLE_DESCONTO);
 
-        try(Statement statement = conn.createStatement();
-        ResultSet results = statement.executeQuery(sb.toString())){
+        try (Statement statement = conn.createStatement();
+             ResultSet results = statement.executeQuery(sb.toString())) {
 
             List<Desconto> descontos = new ArrayList<>();
 
-            while(results.next()){
+            while (results.next()) {
                 Desconto desconto = new Desconto();
                 desconto.setId(results.getInt(INDEX_DESCONTO_ID));
                 desconto.setName(results.getString(INDEX_DESCONTO_NAME));
@@ -123,22 +128,22 @@ public class Datasource {
             }
 
             return descontos;
-       }catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println(" Query failed " + e.getMessage());
             return null;
         }
     }
 
-    public List<PlanoTreino> queryPlanoTreino(){
+    public List<PlanoTreino> queryPlanoTreino() {
         StringBuilder sb = new StringBuilder("SELECT * FROM ");
         sb.append(TABLE_PLANOTREINO);
 
-        try(Statement statement = conn.createStatement();
-        ResultSet results = statement.executeQuery(sb.toString())){
+        try (Statement statement = conn.createStatement();
+             ResultSet results = statement.executeQuery(sb.toString())) {
 
             List<PlanoTreino> planoTreinos = new ArrayList<>();
 
-            while(results.next()){
+            while (results.next()) {
                 PlanoTreino planoTreino = new PlanoTreino();
                 planoTreino.setId(results.getInt(INDEX_PLANOTREINO_ID));
                 planoTreino.setName(results.getString(INDEX_PLANOTREINO_NAME));
@@ -148,76 +153,111 @@ public class Datasource {
             }
             return planoTreinos;
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println(" Query failed " + e.getMessage());
             return null;
         }
     }
 
-
-    public void registerPlanoTreino(String name,String descrition,int amount) {
-      try{
-        conn.setAutoCommit(false);
-        insertPlanoTreino.setString(1,name);
-        insertPlanoTreino.setString(2,descrition);
-        insertPlanoTreino.setInt(3,amount);
-
-        int affectedRows = insertPlanoTreino.executeUpdate();
-
-        if(affectedRows ==1){
-            conn.commit();
-        }else{
-        throw new SQLException(" Insert PlanoTreino failed");
-        }
-
-      }catch (SQLException e){
-          System.out.println("insert planoTreino: " + e.getMessage());
-
-          try {
-              System.out.println("Performing rollback");
-              conn.rollback();
-          }catch (SQLException e2){
-              System.out.println(" is bad to get here " + e2.getMessage());
-          }
-      }finally {
-          try {
-              System.out.println("Reseting default commit behavior");
-              conn.setAutoCommit(true);
-          }catch (SQLException e){
-              System.out.println(" Coudnt reset auto-commit! " + e.getMessage());
-          }
-      }
-    }
-
-    public void registerDesconto(String name, String descrition,int amount){
-        try{
+    public void registerPersonalTrainer(String firstName, String lastName, String phoneNumber, String numberBI, int amount) {
+        try {
             conn.setAutoCommit(false);
-            insertDesconto.setString(1,name);
-            insertDesconto.setString(2,descrition);
-            insertDesconto.setInt(3,amount);
+            insertPersonalTrainer.setString(1,firstName);
+            insertPersonalTrainer.setString(2,lastName);
+            insertPersonalTrainer.setString(3,phoneNumber);
+            insertPersonalTrainer.setString(4,numberBI);
+            insertPersonalTrainer.setInt(5,amount);
 
-            int affectedRows = insertDesconto.executeUpdate();
-
-            if(affectedRows ==1){
+            int affectedRows = insertPersonalTrainer.executeUpdate();
+            if (affectedRows ==1){
                 conn.commit();
             }else{
-                throw new SQLException(" Insert Desconto failed!");
+                throw new SQLException(" Insert PersonalTrainer failed");
             }
-        }catch (SQLException e){
-            System.out.println(" Insert desconto: " +e.getMessage());
 
-            try{
-                System.out.println("performing rollback");
+        } catch (SQLException e) {
+            System.out.println(" insert PersonalTrainer" + e.getMessage());
+            try {
+                System.out.println("Performing rollback");
                 conn.rollback();
-            }catch (SQLException e2){
-                System.out.println(" is bad to get here " + e2.getMessage());
+            } catch (SQLException e2) {
+                System.out.println("is bad to get here" + e2.getMessage());
             }
-        }finally {
+        } finally {
             try {
                 System.out.println("Reseting default commit behavior");
                 conn.setAutoCommit(true);
-            }catch (SQLException e){
-            System.out.println("couldnt default auto-commit" + e.getMessage());}
+            } catch (SQLException e) {
+                System.out.println("Couldnt reset the autocommit" + e.getMessage());
+            }
+        }
+
+    }
+
+    public void registerPlanoTreino(String name, String descrition, int amount) {
+        try {
+            conn.setAutoCommit(false);
+            insertPlanoTreino.setString(1, name);
+            insertPlanoTreino.setString(2, descrition);
+            insertPlanoTreino.setInt(3, amount);
+
+            int affectedRows = insertPlanoTreino.executeUpdate();
+
+            if (affectedRows == 1) {
+                conn.commit();
+            } else {
+                throw new SQLException(" Insert PlanoTreino failed");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("insert planoTreino: " + e.getMessage());
+
+            try {
+                System.out.println("Performing rollback");
+                conn.rollback();
+            } catch (SQLException e2) {
+                System.out.println(" is bad to get here " + e2.getMessage());
+            }
+        } finally {
+            try {
+                System.out.println("Reseting default commit behavior");
+                conn.setAutoCommit(true);
+            } catch (SQLException e) {
+                System.out.println(" Coudnt reset auto-commit! " + e.getMessage());
+            }
+        }
+    }
+
+    public void registerDesconto(String name, String descrition, int amount) {
+        try {
+            conn.setAutoCommit(false);
+            insertDesconto.setString(1, name);
+            insertDesconto.setString(2, descrition);
+            insertDesconto.setInt(3, amount);
+
+            int affectedRows = insertDesconto.executeUpdate();
+
+            if (affectedRows == 1) {
+                conn.commit();
+            } else {
+                throw new SQLException(" Insert Desconto failed!");
+            }
+        } catch (SQLException e) {
+            System.out.println(" Insert desconto: " + e.getMessage());
+
+            try {
+                System.out.println("performing rollback");
+                conn.rollback();
+            } catch (SQLException e2) {
+                System.out.println(" is bad to get here " + e2.getMessage());
+            }
+        } finally {
+            try {
+                System.out.println("Reseting default commit behavior");
+                conn.setAutoCommit(true);
+            } catch (SQLException e) {
+                System.out.println("couldnt default auto-commit" + e.getMessage());
+            }
         }
     }
 
