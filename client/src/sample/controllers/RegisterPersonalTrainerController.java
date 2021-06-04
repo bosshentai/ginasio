@@ -8,10 +8,11 @@ import sample.Main;
 import sample.data.Datasource;
 import sample.models.PersonalTrainer;
 
-import java.io.IOException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
+import java.io.IOException;
+
+
+import static sample.utils.Utils.onlyDigits;
 
 
 public class RegisterPersonalTrainerController {
@@ -67,11 +68,11 @@ public class RegisterPersonalTrainerController {
                 PersonalTrainer personalTrainer = new PersonalTrainer(firstName.getText(),lastName.getText(),
                         phone.getText(),Integer.parseInt(nBI.getText()),Integer.parseInt(amount.getText()));
 
-                System.out.println("FirstName: " + personalTrainer.getFirstName() +
-                        " LastName: " + personalTrainer.getLastName() +
-                        " nBI: " + personalTrainer.getNumberBI() +
-                        " phoneNumber: " + personalTrainer.getPhoneNumber() +
-                        " amount: " + amount.getText());
+//                System.out.println("FirstName: " + personalTrainer.getFirstName() +
+//                        " LastName: " + personalTrainer.getLastName() +
+//                        " nBI: " + personalTrainer.getNumberBI() +
+//                        " phoneNumber: " + personalTrainer.getPhoneNumber() +
+//                        " amount: " + amount.getText());
 
                 Datasource.getInstance().registerPersonalTrainer(personalTrainer.getFirstName(),personalTrainer.getLastName(),
                         personalTrainer.getPhoneNumber(),personalTrainer.getNumberBI(),personalTrainer.getAmount());
@@ -89,15 +90,5 @@ public class RegisterPersonalTrainerController {
         }
     }
 
-    private static boolean onlyDigits(String str){
-        String regex = "[0-9]+";
-        Pattern p = Pattern.compile(regex);
 
-        if (str == null){
-            return false;
-        }
-
-        Matcher m = p.matcher(str);
-        return m.matches();
-    };
 }

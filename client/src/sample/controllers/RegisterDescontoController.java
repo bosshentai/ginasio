@@ -15,6 +15,8 @@ import java.util.regex.Pattern;
 
 import javafx.scene.control.Alert.AlertType;
 
+import static sample.utils.Utils.onlyDigits;
+
 public class RegisterDescontoController {
 
 
@@ -28,31 +30,28 @@ public class RegisterDescontoController {
     private TextField amount;
 
     @FXML
-    private void swichMain() throws IOException{
+    private void swichMain() throws IOException {
         Main.setRoot("index");
     }
 
     @FXML
-    private void registeDiscount() throws IOException{
+    private void registeDiscount() throws IOException {
 
 
-        if(name.getText().isEmpty()){
+        if (name.getText().isEmpty()) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setHeaderText("O nome do desconto  enconta vazio ");
             alert.showAndWait();
-        }else if (descrition.getText().isEmpty()){
+        } else if (descrition.getText().isEmpty()) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setHeaderText("A descriçao do desconto encontra vazio");
             alert.showAndWait();
-        }else if(amount.getText().isEmpty()){
+        } else if (amount.getText().isEmpty()) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setHeaderText("O valor do desconto encontra vazio");
             alert.showAndWait();
-        }
-
-
-        if(!name.getText().isEmpty() && !descrition.getText().isEmpty() && !amount.getText().isEmpty()){
-            if(onlyDigits(amount.getText())) {
+        } else {
+            if (onlyDigits(amount.getText())) {
 //            System.out.println("nome " + name.getText() + " descrition " + descrition.getText() +  " int: "
 //                    + amount.getText());
 
@@ -65,30 +64,15 @@ public class RegisterDescontoController {
                 alert.showAndWait();
 
                 Main.setRoot("listDesconto");
-            }else{
+            } else {
                 Alert alert = new Alert(AlertType.ERROR);
-                alert.setHeaderText("Inserio o valor do desconto de forma incorreta");
+                alert.setHeaderText("Inseri-o o valor do desconto de forma incorreta");
                 alert.showAndWait();
             }
         }
 
 
-
-
     }
-    private static boolean onlyDigits (String str) {
 
-        String regex = "[0-9]+";
-
-        Pattern p = Pattern.compile(regex);
-
-        if(str == null){
-            return false;
-        }
-
-        Matcher m = p.matcher(str);
-
-        return m.matches();
-    }
 
 }
