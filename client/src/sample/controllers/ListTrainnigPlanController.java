@@ -30,6 +30,7 @@ public class ListTrainnigPlanController {
     private void listTranningPlan(){
         Task<ObservableList<PlanoTreino>> task = new GetAllTrainningPlanTask();
         trainningPlanTable.itemsProperty().bind(task.valueProperty());
+      //  System.out.println(task.valueProperty());
 
 
         new Thread(task).start();

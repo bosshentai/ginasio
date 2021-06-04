@@ -49,6 +49,14 @@ public class Datasource {
     public static final int INDEX_PERSONALTRAINER_AMOUNT = 6;
 
 
+    public static final String TABLE_CLIENT = "client";
+    public static final String COLUMN_CLIENT_ID = "_id";
+    public static final String COLUMN_CLIENT_FIRSTNAME = "firstName";
+    public static final String COLUMN_CLIENT_LASTNAME = "lastName";
+    public static final String COLUMN_CLIENT_PHONENUMBER = "phoneNumber";
+    public static final String COLMUN_CLIENT_NUMBERBI = "numberBI";
+
+
     public static final String INSERT_PLANOTREINO = "INSERT INTO " + TABLE_PLANOTREINO +
             " (" + COLUMN_PLANOTREINO_NAME + "," + COLUMN_PLANOTREINO_DESCRITION + ","
             + COLUMN_PLANOTREINO_AMOUNT + ") VALUES (?,?,?);";
@@ -62,9 +70,16 @@ public class Datasource {
             + COLUMN_PERSONALTRAINER_PHONENUMBER + ", " + COLUMN_PERSONALTRAINER_NUMBERBI + ","
             + COLUMN_PERSONALTRAINER_AMOUNT + ") VALUES (?,?,?,?,?)";
 
+
+    public static final String INSERT_CLIENT = "INSERT INTO " + TABLE_CLIENT +
+            " (" + COLUMN_CLIENT_FIRSTNAME + "," + COLUMN_CLIENT_LASTNAME + ","
+            + COLUMN_CLIENT_PHONENUMBER + "," + COLMUN_CLIENT_NUMBERBI + ") VALUES(?,?,?,?)";
+
     private PreparedStatement insertPlanoTreino;
     private PreparedStatement insertDesconto;
     private PreparedStatement insertPersonalTrainer;
+    private PreparedStatement insertClient;
+
 
     protected Connection conn;
 
@@ -84,6 +99,7 @@ public class Datasource {
             insertPlanoTreino = conn.prepareStatement(INSERT_PLANOTREINO);
             insertDesconto = conn.prepareStatement(INSERT_DESCONTO);
             insertPersonalTrainer = conn.prepareStatement(INSERT_PERSONALTRAINER);
+            insertClient = conn.prepareStatement(INSERT_CLIENT);
 
             return true;
         } catch (SQLException e) {
@@ -94,6 +110,10 @@ public class Datasource {
 
     public void close() {
         try {
+
+            if(insertClient != null){
+                insertClient.close();
+            }
 
             if (insertPersonalTrainer != null) {
                 insertPersonalTrainer.close();
@@ -291,6 +311,38 @@ public class Datasource {
                 conn.setAutoCommit(true);
             } catch (SQLException e) {
                 System.out.println("couldnt default auto-commit" + e.getMessage());
+            }
+        }
+    }
+
+
+    public void registerClient(String firstName,String lastName,String phoneNumber,int numberBI){
+        try{
+            conn.setAutoCommit(false);
+            insertClient.setString(1,firstName);
+            insertClient.setString(2,lastName);
+            insertClient.setString(3,phoneNumber);
+            insertClient.setInt(4,numberBI);
+
+            int affectedRows = insertClient.executeUpdate();
+            if(affectedRows == 1){
+                conn.commit();
+            }
+        }catch(SQLException e){
+            System.out.println(" insert client: " + e.getMessage());
+            try{
+                System.out.println("performing rollback");
+                conn.rollback();
+            }catch(SQLException e2){
+                System.out.println(" is bad to get here " + e2.getMessage());
+            }
+        }finally{
+            try{
+                System.out.println("Reseting default commit behavior");
+                conn.setAutoCommit(true);
+            }catch(SQLException e)
+            {
+                System.out.println("couldnt default auto-commit " + e.getMessage());
             }
         }
     }

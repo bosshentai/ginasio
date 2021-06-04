@@ -31,7 +31,7 @@ public class RegisterDescontoController {
 
     @FXML
     private void swichMain() throws IOException {
-        Main.setRoot("index");
+        Main.setRoot("listDesconto");
     }
 
     @FXML
