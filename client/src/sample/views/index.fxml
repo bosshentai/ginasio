@@ -1,15 +1,60 @@
-
-<?import javafx.scene.layout.GridPane?>
-
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.VBox?>
 <BorderPane fx:controller="sample.controllers.IndexController"
-            xmlns:fx="http://javafx.com/fxml" >
-<center>
-    <HBox>
-    <Button  text="Lista de Plano de Treino" onAction="#switchTrainingPlan"/>
-    <Button  text="Lista de Desconto " onAction="#switchDiscount"/>
-    </HBox>
-</center>
+            xmlns:fx="http://javafx.com/fxml">
+    <top
+
+    >
+        <HBox alignment="TOP_CENTER">
+            <Label text="Sabino's Gym">
+                <font>
+                    <Font name="bold" size="34"/>
+                </font>
+            </Label>
+        </HBox>
+
+    </top>
+    <center>
+
+
+        <VBox>
+            <HBox alignment="TOP_CENTER">
+                <ImageView
+                        fx:id="logoView"
+                        fitWidth="500.0"
+                        pickOnBounds="true"
+                        preserveRatio="true"
+                >
+                    <image>
+                        <Image
+                                url="@../image/gymLogo.jpg"
+                                backgroundLoading="true"
+
+                        />
+                    </image>
+
+                </ImageView>
+
+            </HBox>
+            <HBox
+                    alignment="BOTTOM_CENTER">
+                <VBox>
+                    <Button text="Pagamento"/>
+                    <Button text="Informaçao do Cliente"/>
+                </VBox>
+                <VBox>
+                    <Button text="Lista de Plano de Treino" onAction="#switchTrainingPlan"/>
+                    <Button text="Lista de Desconto " onAction="#switchDiscount"/>
+                    <Button text="Lista de Personal Trainer" onAction="#switchPersonalTrainer"/>
+                </VBox>
+            </HBox>
+
+        </VBox>
+    </center>
 </BorderPane>

@@ -87,7 +87,7 @@
             <Button
                     translateX="-40"
                     translateY="-40"
-                    text="Register"
+                    text="Registar"
                     onAction="#switchRegistarDescont"
             />
         </HBox>

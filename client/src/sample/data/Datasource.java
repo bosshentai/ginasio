@@ -2,6 +2,7 @@ package sample.data;
 
 
 import sample.models.Desconto;
+import sample.models.PersonalTrainer;
 import sample.models.PlanoTreino;
 
 import java.sql.*;
@@ -40,6 +41,12 @@ public class Datasource {
     public static final String COLUMN_PERSONALTRAINER_PHONENUMBER = "phoneNumber";
     public static final String COLUMN_PERSONALTRAINER_NUMBERBI = "numberBI";
     public static final String COLUMN_PERSONALTRAINER_AMOUNT = "amount";
+    private static final int INDEX_PERSONALTRAINER_ID = 1;
+    private static final int INDEX_PERSONALTRAINER_FIRSTNAME = 2;
+    private static final int INDEX_PERSONALTRAINER_LASTNAME = 3;
+    private static final int INDEX_PERSONALTRAINNER_PHONENUMBER = 4;
+    private static final int INDEX_PERSONALTRAINER_NUMBERBI = 5;
+    public static final int INDEX_PERSONALTRAINER_AMOUNT = 6;
 
 
     public static final String INSERT_PLANOTREINO = "INSERT INTO " + TABLE_PLANOTREINO +
@@ -109,6 +116,33 @@ public class Datasource {
     }
 
 
+    public List<PersonalTrainer> queryPersonalTrainer() {
+        StringBuilder sb = new StringBuilder("SELECT * FROM ");
+        sb.append(TABLE_PERSONALTRAINER);
+        try (Statement statement = conn.createStatement();
+             ResultSet results = statement.executeQuery(sb.toString())) {
+
+            List<PersonalTrainer> personalTrainers = new ArrayList<>();
+
+            while (results.next()) {
+                PersonalTrainer personalTrainer = new PersonalTrainer();
+                personalTrainer.setId(results.getInt(INDEX_PERSONALTRAINER_ID));
+                personalTrainer.setFirstName(results.getString(INDEX_PERSONALTRAINER_FIRSTNAME));
+                personalTrainer.setLastName(results.getString(INDEX_PERSONALTRAINER_LASTNAME));
+                personalTrainer.setPhoneNumber(results.getString(INDEX_PERSONALTRAINNER_PHONENUMBER));
+                personalTrainer.setNumberBI(results.getInt(INDEX_PERSONALTRAINER_NUMBERBI));
+                personalTrainer.setAmount(results.getInt(INDEX_PERSONALTRAINER_AMOUNT));
+                personalTrainers.add(personalTrainer);
+
+            }
+
+            return personalTrainers;
+        } catch (SQLException e) {
+            System.out.println(" Query failed " + e.getMessage());
+            return null;
+        }
+    }
+
     public List<Desconto> queryDesconto() {
         StringBuilder sb = new StringBuilder("SELECT * FROM ");
         sb.append(TABLE_DESCONTO);
@@ -159,19 +193,19 @@ public class Datasource {
         }
     }
 
-    public void registerPersonalTrainer(String firstName, String lastName, String phoneNumber, String numberBI, int amount) {
+    public void registerPersonalTrainer(String firstName, String lastName, String phoneNumber, int numberBI, int amount) {
         try {
             conn.setAutoCommit(false);
-            insertPersonalTrainer.setString(1,firstName);
-            insertPersonalTrainer.setString(2,lastName);
-            insertPersonalTrainer.setString(3,phoneNumber);
-            insertPersonalTrainer.setString(4,numberBI);
-            insertPersonalTrainer.setInt(5,amount);
+            insertPersonalTrainer.setString(1, firstName);
+            insertPersonalTrainer.setString(2, lastName);
+            insertPersonalTrainer.setString(3, phoneNumber);
+            insertPersonalTrainer.setInt(4, numberBI);
+            insertPersonalTrainer.setInt(5, amount);
 
             int affectedRows = insertPersonalTrainer.executeUpdate();
-            if (affectedRows ==1){
+            if (affectedRows == 1) {
                 conn.commit();
-            }else{
+            } else {
                 throw new SQLException(" Insert PersonalTrainer failed");
             }
 

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="sample.controllers.ListPersonalTrainerController"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <top>
+        <VBox alignment="CENTER">
+            <Button
+                    translateX="-270"
+                    translateY="30"
+                    text="back"
+                    onAction="#switchMain"
+            />
+            <Label text="Lista de Personal Trainer">
+                <font>
+                    <Font name="bold" size="34"/>
+                </font>
+            </Label>
+        </VBox>
+    </top>
+<center>
+    <TableView
+            fx:id="personalTrainerTable"
+            translateX="30"
+            translateY="20"
+            maxHeight="450.0"
+            maxWidth="400.0"
+            BorderPane.alignment="BASELINE_LEFT"
+    >
+        <columns>
+
+        </columns>
+
+    </TableView>
+</center>
+    <right>
+        <VBox alignment="BASELINE_RIGHT">
+            <Button
+                    translateX="-40"
+                    text="Atualizar"
+
+            />
+        </VBox>
+    </right>
+
+    <bottom>
+        <HBox
+        alignment="BOTTOM_RIGHT">
+                <Button
+                        translateX="-40"
+                        translateY="-40"
+                        text="Registar"
+                        onAction="#switchRegistarPersonalTrainer"
+                />
+        </HBox>
+    </bottom>
+</BorderPane>

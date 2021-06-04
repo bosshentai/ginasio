@@ -5,6 +5,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 
 import sample.Main;
+import sample.data.Datasource;
 import sample.models.PersonalTrainer;
 
 import java.io.IOException;
@@ -33,7 +34,7 @@ public class RegisterPersonalTrainerController {
 
     @FXML
     private void swichBack() throws IOException {
-        Main.setRoot("index");
+        Main.setRoot("listPersonalTrainer");
     }
 
     @FXML
@@ -58,14 +59,11 @@ public class RegisterPersonalTrainerController {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("O preço encontra vazio");
             alert.showAndWait();
-        }
-
-        if(!firstName.getText().isEmpty() && !lastName.getText().isEmpty() && !amount.getText().isEmpty()
-     && !phone.getText().isEmpty() && !nBI.getText().isEmpty()){
+        }else {
             if(onlyDigits(amount.getText())){
-                System.out.println("FirstName: " + firstName.getText() + " LastName: " + lastName.getText() +
-                        " nBI: " + nBI.getText() + " phoneNumber: " + phone.getText() + " amount: " +
-                        amount.getText());
+//                System.out.println("FirstName: " + firstName.getText() + " LastName: " + lastName.getText() +
+//                        " nBI: " + nBI.getText() + " phoneNumber: " + phone.getText() + " amount: " +
+//                        amount.getText());
                 PersonalTrainer personalTrainer = new PersonalTrainer(firstName.getText(),lastName.getText(),
                         phone.getText(),Integer.parseInt(nBI.getText()),Integer.parseInt(amount.getText()));
 
@@ -74,6 +72,14 @@ public class RegisterPersonalTrainerController {
                         " nBI: " + personalTrainer.getNumberBI() +
                         " phoneNumber: " + personalTrainer.getPhoneNumber() +
                         " amount: " + amount.getText());
+
+                Datasource.getInstance().registerPersonalTrainer(personalTrainer.getFirstName(),personalTrainer.getLastName(),
+                        personalTrainer.getPhoneNumber(),personalTrainer.getNumberBI(),personalTrainer.getAmount());
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText("O registro foi feito com sucesso");
+                alert.showAndWait();
+
 
             }else{
                 Alert alert = new Alert(Alert.AlertType.ERROR);
