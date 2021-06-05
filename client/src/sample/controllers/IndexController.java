@@ -28,4 +28,9 @@ public class IndexController {
     private void switchPersonalTrainer() throws IOException{
         Main.setRoot("listPersonalTrainer");
     }
+
+    @FXML
+    private void switchClient() throws IOException{
+        Main.setRoot("listClient");
+    }
 }

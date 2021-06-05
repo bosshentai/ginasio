@@ -52,6 +52,8 @@
                     <Button text="Lista de Plano de Treino" onAction="#switchTrainingPlan"/>
                     <Button text="Lista de Desconto " onAction="#switchDiscount"/>
                     <Button text="Lista de Personal Trainer" onAction="#switchPersonalTrainer"/>
+                    <Button text="Lista de CLiente" onAction="#switchClient"/>
+
                 </VBox>
             </HBox>
 
