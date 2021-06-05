@@ -38,34 +38,34 @@
                 BorderPane.alignment="BASELINE_LEFT"
         >
             <columns>
-                <TableColumn text="Nome">
-                    <cellFactory>
+                <TableColumn
+                        text="Primeiro nome">
+                    <cellValueFactory>
                         <PropertyValueFactory property="firstName"/>
-                    </cellFactory>
+                    </cellValueFactory>
                 </TableColumn>
                 <TableColumn text="Ultimo Nome">
-                    <cellFactory>
+                    <cellValueFactory>
                         <PropertyValueFactory property="lastName"/>
-                    </cellFactory>
+                    </cellValueFactory>
                 </TableColumn>
                 <TableColumn text="Telephone">
-                    <cellFactory>
+                    <cellValueFactory>
                         <PropertyValueFactory property="phoneNumber"/>
-                    </cellFactory>
+                    </cellValueFactory>
                 </TableColumn>
                 <TableColumn text="BI">
-                    <cellFactory>
+                    <cellValueFactory>
                         <PropertyValueFactory property="numberBI"/>
-                    </cellFactory>
+                    </cellValueFactory>
                 </TableColumn>
 
                 <TableColumn text="Preço">
-                    <cellFactory>
-                        <PropertyValueFactory property="=amount"/>
-                    </cellFactory>
+                    <cellValueFactory>
+                        <PropertyValueFactory property="amount"/>
+                    </cellValueFactory>
                 </TableColumn>
             </columns>
-
         </TableView>
     </center>
     <right>

@@ -7,7 +7,7 @@ public class PersonalTrainer extends Pessoa{
     private final SimpleIntegerProperty amount;
 
     public PersonalTrainer(){
-       // super();
+
         this.amount = new SimpleIntegerProperty();
     }
 

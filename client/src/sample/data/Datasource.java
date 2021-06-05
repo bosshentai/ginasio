@@ -1,6 +1,7 @@
 package sample.data;
 
 
+import sample.models.Cliente;
 import sample.models.Desconto;
 import sample.models.PersonalTrainer;
 import sample.models.PlanoTreino;
@@ -55,6 +56,11 @@ public class Datasource {
     public static final String COLUMN_CLIENT_LASTNAME = "lastName";
     public static final String COLUMN_CLIENT_PHONENUMBER = "phoneNumber";
     public static final String COLMUN_CLIENT_NUMBERBI = "numberBI";
+    public static final int INDEX_CLIENT_ID = 1;
+    public static final int INDEX_CLIENT_FIRSTNAME = 2;
+    public static final int INDEX_CLIENT_LASTNAME = 3;
+    public static final int INDEX_CLIENT_PHONENUMBER = 4 ;
+    public static final int INDEX_CLIENT_NUMBERBI = 5;
 
 
     public static final String INSERT_PLANOTREINO = "INSERT INTO " + TABLE_PLANOTREINO +
@@ -135,6 +141,34 @@ public class Datasource {
         }
     }
 
+
+    public List<Cliente> queryClient(){
+        StringBuilder sb = new StringBuilder("SELECT * FROM ");
+        sb.append(TABLE_CLIENT);
+        try(Statement statement = conn.createStatement();
+        ResultSet results = statement.executeQuery(sb.toString())){
+
+            List<Cliente> clientes = new ArrayList<>();
+
+            while(results.next()){
+                Cliente cliente = new Cliente();
+                cliente.setId(results.getInt(INDEX_CLIENT_ID));
+                cliente.setFirstName(results.getString(INDEX_CLIENT_FIRSTNAME));
+                cliente.setLastName(results.getString(INDEX_CLIENT_LASTNAME));
+                cliente.setPhoneNumber(results.getString(INDEX_CLIENT_PHONENUMBER));
+                cliente.setNumberBI(results.getInt(INDEX_CLIENT_NUMBERBI));
+
+                clientes.add(cliente);
+
+            }
+
+            return clientes;
+    }catch (SQLException e){
+            System.out.println(" Query failed " + e.getMessage());
+            return null;
+        }
+
+    }
 
     public List<PersonalTrainer> queryPersonalTrainer() {
 

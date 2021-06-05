@@ -39,7 +39,7 @@
         >
             <columns>
                 <TableColumn
-                        text="Nome">
+                        text="Primeiro nome">
                     <cellValueFactory>
                         <PropertyValueFactory property="firstName"/>
                     </cellValueFactory>
