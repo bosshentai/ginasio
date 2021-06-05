@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.text.TextFlow?>
+<?import com.sun.javafx.scene.control.IntegerField?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="sample.controllers.RegisterTrainningPlanController"
+
+>
+    <top>
+        <HBox alignment="CENTER">
+            <Button
+                    translateX="-170"
+                    text="back"
+                    onAction="#swichBack"
+            />
+
+            <Label text="Registar Plano de Treino" textFill="black">
+                <font>
+                    <Font name="Roboto bold" size="34"/>
+                </font>
+            </Label>
+        </HBox>
+
+    </top>
+    <center>
+        <VBox alignment="BASELINE_LEFT">
+            <Label text="Nome"
+                   translateX="30"
+                   translateY="20">
+                <font>
+                    <Font size="30"/>
+                </font>
+            </Label>
+            <TextField fx:id="name"
+                       translateX="30"
+                       translateY="35"
+                       maxWidth="300"
+                       promptText="Insira o seu nome"/>
+
+            <Label text="Descrição"
+                   translateX="30"
+                   translateY="50">
+                <font>
+                    <Font size="30"/>
+                </font>
+            </Label>
+            <TextArea fx:id="descrition"
+                      translateX="30"
+                      translateY="-80"
+                      maxWidth="700"
+
+                      promptText="Escreve uma breve Descrição">
+
+            </TextArea>
+            <Label text="Preço"
+                   translateX="30"
+                   translateY="-50">
+                <font>
+                    <Font size="30"/>
+                </font>
+            </Label>
+            <TextField fx:id="amount"
+                       translateX="30"
+                       translateY="-30"
+                       maxWidth="100"
+
+                       promptText="Insira o valor"/>
+
+
+        </VBox>
+
+    </center>
+
+
+    <bottom>
+      <HBox
+      alignment="BOTTOM_RIGHT">
+          <Button
+                  translateX="-40"
+                  translateY="-40"
+                  text="Registar"
+          onAction="#registerTrainnig"/>
+      </HBox>
+
+
+    </bottom>
+
+</BorderPane>
