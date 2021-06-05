@@ -137,12 +137,16 @@ public class Datasource {
 
 
     public List<PersonalTrainer> queryPersonalTrainer() {
+
         StringBuilder sb = new StringBuilder("SELECT * FROM ");
         sb.append(TABLE_PERSONALTRAINER);
+
         try (Statement statement = conn.createStatement();
              ResultSet results = statement.executeQuery(sb.toString())) {
 
+
             List<PersonalTrainer> personalTrainers = new ArrayList<>();
+
 
             while (results.next()) {
                 PersonalTrainer personalTrainer = new PersonalTrainer();
@@ -152,9 +156,11 @@ public class Datasource {
                 personalTrainer.setPhoneNumber(results.getString(INDEX_PERSONALTRAINNER_PHONENUMBER));
                 personalTrainer.setNumberBI(results.getInt(INDEX_PERSONALTRAINER_NUMBERBI));
                 personalTrainer.setAmount(results.getInt(INDEX_PERSONALTRAINER_AMOUNT));
+
                 personalTrainers.add(personalTrainer);
 
             }
+
 
             return personalTrainers;
         } catch (SQLException e) {

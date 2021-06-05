@@ -11,6 +11,7 @@ public class Pessoa {
     private final SimpleIntegerProperty numberBI;
 
     public Pessoa(){
+        this.id = new SimpleIntegerProperty();
         this.firstName = new SimpleStringProperty();
         this.lastName = new SimpleStringProperty();
         this.phoneNumber = new SimpleStringProperty();

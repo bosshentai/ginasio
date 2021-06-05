@@ -31,7 +31,7 @@ public class ListPersonalTrainerController {
     private void listPersonalTrainer(){
         Task<ObservableList<PersonalTrainer>>  task = new GetAllPersonalTrainer();
         personalTrainerTable.itemsProperty().bind(task.valueProperty());
-        System.out.println(task.valueProperty());
+
 
         new Thread(task).start();
     }
