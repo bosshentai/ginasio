@@ -30,41 +30,42 @@
 
     <center>
         <TableView
-                fx:id="descontoTable"
+                fx:id="clientTable"
                 translateX="30"
                 translateY="20"
                 maxHeight="450.0"
-                maxWidth="400.0"
+                maxWidth="500.0"
                 BorderPane.alignment="BASELINE_LEFT"
         >
             <columns>
                 <TableColumn
                         prefWidth="100.0"
-                        text="Nome"
+                        text="Primeiro nome"
                 >
                     <cellValueFactory>
-                        <PropertyValueFactory property="name"/>
+                        <PropertyValueFactory property="firstName"/>
                     </cellValueFactory>
                 </TableColumn>
                 <TableColumn
                         prefWidth="100.0"
-                        text="Descrição"
+                        text="Ultimo nome"
                 >
                     <cellValueFactory>
-                        <PropertyValueFactory property="descrition"/>
+                        <PropertyValueFactory property="lastName"/>
                     </cellValueFactory>
 
                 </TableColumn>
-
-                <TableColumn
-                        prefWidth="100.0"
-                        text="Preço"
-                >
+                <TableColumn text="Telephone">
                     <cellValueFactory>
-                        <PropertyValueFactory property="amount"/>
+                        <PropertyValueFactory property="phoneNumber"/>
                     </cellValueFactory>
-
                 </TableColumn>
+                <TableColumn text="BI">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="numberBI"/>
+                    </cellValueFactory>
+                </TableColumn>
+                
             </columns>
 
         </TableView>
