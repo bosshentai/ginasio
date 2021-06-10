@@ -45,14 +45,15 @@
             <HBox
                     alignment="BOTTOM_CENTER">
                 <VBox>
-                    <Button text="Pagamento"/>
-                    <Button text="Informaçao do Cliente"/>
+
+                    <Button text="Lista de Personal Trainer" onAction="#switchPersonalTrainer"/>
+                    <Button text="Lista de CLiente" onAction="#switchClient"/>
+                    <Button text="Pagamento" onAction="#openAction"/>
                 </VBox>
                 <VBox>
                     <Button text="Lista de Plano de Treino" onAction="#switchTrainingPlan"/>
                     <Button text="Lista de Desconto " onAction="#switchDiscount"/>
-                    <Button text="Lista de Personal Trainer" onAction="#switchPersonalTrainer"/>
-                    <Button text="Lista de CLiente" onAction="#switchClient"/>
+
 
                 </VBox>
             </HBox>

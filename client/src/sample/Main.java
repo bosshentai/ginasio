@@ -19,7 +19,7 @@ public class Main extends Application {
 
 
 
-    scene = new Scene(loadFXML("index"),800,600);
+    scene = new Scene(loadFXML("payment"),800,600);
     stage.setScene(scene);
     stage.show();
     }

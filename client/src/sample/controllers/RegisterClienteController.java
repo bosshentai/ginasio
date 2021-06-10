@@ -1,15 +1,19 @@
 package sample.controllers;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import sample.Main;
 import sample.data.Datasource;
 import sample.models.Cliente;
+import sample.models.PersonalTrainer;
+import sample.models.PlanoTreino;
 
 import java.io.IOException;
 
-public class RegisterClienteController {
+public class RegisterClienteController  {
 
     @FXML
     private TextField firstName;
@@ -24,6 +28,8 @@ public class RegisterClienteController {
     private TextField phone;
 
 
+    @FXML
+    private ComboBox<PlanoTreino> cbTypeTrainningPlan;
 
     @FXML
     private void swichBack() throws IOException {
@@ -78,4 +84,6 @@ public class RegisterClienteController {
             }
 
     }
+
+
 }
