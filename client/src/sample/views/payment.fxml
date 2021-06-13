@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="sample.controllers.PaymentController"
+            prefHeight="400.0" prefWidth="600.0">
+    <top>
+        <HBox alignment="TOP_CENTER">
+            <Button
+                    translateX="-270"
+                    translateY="30"
+                    text="back"
+                    onAction="#switchPayment"
+            />
+            <Label text="Pagamento">
+                <font>
+                <Font name="bold" size="34"/>
+                </font>
+            </Label>
+        </HBox>
+    </top>
+    <center>
+        <VBox
+        alignment="BASELINE_LEFT">
+
+                <Label
+                        text="Numero do BI"
+                        translateX="30"
+                        translateY="20"
+                >
+                        <font>
+                            <Font size="20"/>
+                        </font>
+                </Label>
+                <TextField
+                        fx:id="numberBI"
+                        translateX="30"
+                        translateY="35"
+                        maxWidth="200"
+                        promptText="Insira o BI"
+                />
+            <Label
+                text="Pagamento"
+                translateX="490"
+                translateY="-30"
+            >
+                <font>
+                    <Font size="20"/>
+                </font>
+            </Label>
+            <TextField
+                    fx:id="paymento"
+                    translateX="490"
+                    translateY="-20"
+                    maxWidth="200"
+                    promptText="Insira o valor"
+            />
+
+            <Button
+                    translateX="490"
+            text="Pagar"
+                    onAction="#pagar"
+            />
+        </VBox>
+    </center>
+</BorderPane>

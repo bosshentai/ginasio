@@ -81,6 +81,8 @@ public class Datasource {
             " (" + COLUMN_CLIENT_FIRSTNAME + "," + COLUMN_CLIENT_LASTNAME + ","
             + COLUMN_CLIENT_PHONENUMBER + "," + COLMUN_CLIENT_NUMBERBI + ") VALUES(?,?,?,?)";
 
+
+
     private PreparedStatement insertPlanoTreino;
     private PreparedStatement insertDesconto;
     private PreparedStatement insertPersonalTrainer;
@@ -251,6 +253,28 @@ public class Datasource {
             System.out.println(" Query failed " + e.getMessage());
             return null;
         }
+    }
+
+
+
+    public List<Integer> queryClientNumberBI(){
+        StringBuilder sb = new StringBuilder("SELECT " + COLMUN_CLIENT_NUMBERBI +  " FROM ");
+        sb.append(TABLE_CLIENT);
+        try(Statement statement = conn.createStatement();
+        ResultSet results = statement.executeQuery(sb.toString())){
+
+            List<Integer> clientNumberBI = new ArrayList<>();
+
+            while(results.next()){
+                clientNumberBI.add(results.getInt(1));
+            }
+
+            return clientNumberBI;
+        }catch (SQLException e){
+            System.out.println(" Query failed " + e.getMessage());
+            return null;
+        }
+
     }
 
     public void registerPersonalTrainer(String firstName, String lastName, String phoneNumber, int numberBI, int amount) {

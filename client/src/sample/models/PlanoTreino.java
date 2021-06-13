@@ -57,5 +57,5 @@ public class PlanoTreino {
         return amount.get();
     }
 
-    //public boolean isEmpty(){}
+
 }

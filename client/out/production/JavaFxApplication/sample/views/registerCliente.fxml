@@ -34,7 +34,9 @@
                     translateX="50"
                     translateY="50"
             >
+
                 <VBox>
+
                     <Label
                             text="Primeiro Nome"
                     >
@@ -47,6 +49,8 @@
 
                             promptText="Insira o nome do Personal Trainer"
                     />
+
+
                 </VBox>
                 <VBox alignment="TOP_RIGHT"
                       translateX="200">
@@ -63,43 +67,53 @@
                             promptText="Insira o ultimo Nome"
                     />
                 </VBox>
-                <HBox
-                        translateX="50"
-                        translateY="100">
-                    <VBox>
-                        <Label
-                                text="N BI"
-                        >
-                            <font>
-                                <Font size="20"/>
-                            </font>
-                        </Label>
-                        <TextField
-                                fx:id="nBI"
-
-                                promptText="Insira o numero de BI Personal Trainer"
-                        />
-                    </VBox>
-                    <VBox alignment="TOP_RIGHT"
-                          translateX="200">
-                        <Label
-                                translateX="-40"
-                                text="Telefone"
-                        >
-                            <font>
-                                <Font size="20"/>
-                            </font>
-                        </Label>
-                        <TextField
-                                fx:id="phone"
-                                translateX="30"
-                                promptText="Insira o ultimo Nome"
-                        />
-                    </VBox>
-                </HBox>
 
             </HBox>
+
+            <HBox
+                    translateX="50"
+                    translateY="100">
+                <VBox>
+                    <Label
+                            text="N BI"
+                    >
+                        <font>
+                            <Font size="20"/>
+                        </font>
+                    </Label>
+                    <TextField
+                            fx:id="nBI"
+
+                            promptText="Insira o numero de BI Personal Trainer"
+                    />
+                </VBox>
+                <VBox alignment="TOP_RIGHT"
+                      translateX="200">
+                    <Label
+                            translateX="-40"
+                            text="Telefone"
+                    >
+                        <font>
+                            <Font size="20"/>
+                        </font>
+                    </Label>
+                    <TextField
+                            fx:id="phone"
+                            translateX="30"
+                            promptText="Insira o ultimo Nome"
+                    />
+                </VBox>
+            </HBox>
+    <HBox
+            translateX="50"
+            translateY="150">
+        <ComboBox fx:id="cbTypeTrainningPlan"
+        />
+
+    </HBox>
+
         </VBox>
+
     </center>
     <bottom>
         <HBox
