@@ -1,6 +1,6 @@
 <mxfile>
     <diagram id="ePWEvkxoJoS64kwOmTT4" name="UseCase">
-        <mxGraphModel dx="1374" dy="789" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="990" dy="574" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -139,7 +139,7 @@
         </mxGraphModel>
     </diagram>
     <diagram id="O3YlXwnAtJnwgh6FTSEv" name="Class">
-        <mxGraphModel dx="2224" dy="789" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1840" dy="574" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="ne9PBTsK3VRg3-9Nk_Kp-0"/>
                 <mxCell id="ne9PBTsK3VRg3-9Nk_Kp-1" parent="ne9PBTsK3VRg3-9Nk_Kp-0"/>
@@ -249,18 +249,6 @@
                 </mxCell>
                 <mxCell id="pb4SUzELdtQBCCfHARZ9-3" value="+ pessoa(numBI, numBi,nome,telephone): type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="pb4SUzELdtQBCCfHARZ9-0" vertex="1">
                     <mxGeometry y="164" width="280" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="p8OCCZdQuoeGwK0md2rq-7" value="+ valormensal: int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="ne9PBTsK3VRg3-9Nk_Kp-1" vertex="1">
-                    <mxGeometry x="-400" y="460" width="250" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="ygsx6QlBqN4x8duc0eZh-4" value="+ PercentagemdeDesconto : Desconto" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="ne9PBTsK3VRg3-9Nk_Kp-1" vertex="1">
-                    <mxGeometry x="-400" y="410" width="250" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="ygsx6QlBqN4x8duc0eZh-1" value="+ hasDesconto: boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="ne9PBTsK3VRg3-9Nk_Kp-1" vertex="1">
-                    <mxGeometry x="-400" y="370" width="250" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="ygsx6QlBqN4x8duc0eZh-0" value="+ listadePagamento: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="ne9PBTsK3VRg3-9Nk_Kp-1" vertex="1">
-                    <mxGeometry x="-400" y="500" width="250" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="MYG8xjTeeQIZqB8Vfcv2-0" value="Ginasio" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="ne9PBTsK3VRg3-9Nk_Kp-1" vertex="1">
                     <mxGeometry x="-460" y="760" width="270" height="190" as="geometry">

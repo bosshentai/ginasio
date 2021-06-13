@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class IndexController implements Initializable{
+public class IndexController{
 
     @FXML
     private void switchTrainingPlan() throws IOException{
@@ -38,22 +38,23 @@ public class IndexController implements Initializable{
     }
 
     @FXML
-    private void openAction()throws IOException{
-        try{
-         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("@../views/payment.fxml"));
-            Parent rootl =  fxmlLoader.load();
-            Stage stage = new Stage();
-
-            stage.setScene(new Scene(rootl));
-            stage.show();
-
-        }catch (Exception e){
-            System.out.println(" problem " + e.getMessage());
-        }
+    private void pagamento()throws IOException{
+        Main.setRoot("payment");
+//        try{
+//         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("@../views/payment.fxml"));
+//            Parent rootl =  fxmlLoader.load();
+//            Stage stage = new Stage();
+//
+//            stage.setScene(new Scene(rootl));
+//            stage.show();
+//
+//        }catch (Exception e){
+//            System.out.println(" problem " + e.getMessage());
+//        }
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        //todo
-    }
+//    @Override
+//    public void initialize(URL url, ResourceBundle resourceBundle) {
+//        //todo
+//    }
 }

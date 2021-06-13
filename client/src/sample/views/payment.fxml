@@ -13,6 +13,12 @@
             prefHeight="400.0" prefWidth="600.0">
     <top>
         <HBox alignment="TOP_CENTER">
+            <Button
+                    translateX="-270"
+                    translateY="30"
+                    text="back"
+                    onAction="#switchPayment"
+            />
             <Label text="Pagamento">
                 <font>
                 <Font name="bold" size="34"/>
