@@ -1,8 +1,6 @@
 package sample.controllers;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.concurrent.Task;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
@@ -10,8 +8,7 @@ import sample.Main;
 import sample.data.Datasource;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class PaymentController {
 

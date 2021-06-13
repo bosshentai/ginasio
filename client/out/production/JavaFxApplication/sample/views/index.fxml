@@ -48,7 +48,7 @@
 
                     <Button text="Lista de Personal Trainer" onAction="#switchPersonalTrainer"/>
                     <Button text="Lista de CLiente" onAction="#switchClient"/>
-                    <Button text="Pagamento" onAction="#openAction"/>
+                    <Button text="Pagamento" onAction="#pagamento"/>
                 </VBox>
                 <VBox>
                     <Button text="Lista de Plano de Treino" onAction="#switchTrainingPlan"/>
