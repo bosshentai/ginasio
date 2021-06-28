@@ -9,11 +9,14 @@ import sample.Main;
 import sample.data.Datasource;
 import sample.models.Cliente;
 
+import sample.models.Gym;
 import sample.models.PlanoTreino;
 
 import java.io.IOException;
 
 public class RegisterClienteController  {
+
+    Gym gym = new Gym();
 
     @FXML
     private TextField firstName;
@@ -57,26 +60,19 @@ public class RegisterClienteController  {
 
         }else {
 
-//                System.out.println("FirstName: " + firstName.getText() + " LastName: " + lastName.getText() +
-//                        " nBI: " + nBI.getText() + " phoneNumber: " + phone.getText() + " amount: " +
-//                        amount.getText());
-//                PersonalTrainer personalTrainer = new PersonalTrainer(firstName.getText(),lastName.getText(),
-//                        phone.getText(),Integer.parseInt(nBI.getText()),Integer.parseInt(amount.getText()));
-            Cliente client = new Cliente(firstName.getText(),lastName.getText(),phone.getText(),
-                    Integer.parseInt(nBI.getText()));
-//                System.out.println("FirstName: " + personalTrainer.getFirstName() +
-//                        " LastName: " + personalTrainer.getLastName() +
-//                        " nBI: " + personalTrainer.getNumberBI() +
-//                        " phoneNumber: " + personalTrainer.getPhoneNumber() +
-//                        " amount: " + amount.getText());
 
-            Datasource.getInstance().registerClient(client.getFirstName(),client.getLastName(),client.getPhoneNumber(),
-                    client.getNumberBI());
-
-
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setHeaderText("O registro foi feito com sucesso");
+            if(!gym.addClient(firstName.getText(),lastName.getText(),phone.getText(), nBI.getText())){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("O numero do Bi ja existe no sistema ");
                 alert.showAndWait();
+            }
+            else{
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText("Registrado com sucesso");
+                alert.showAndWait();
+            }
+
+
 
 
 
