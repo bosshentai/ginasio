@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.Alert;
+
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import sample.Main;
@@ -33,16 +34,15 @@ public class RegisterClienteController {
 
     @FXML
     private TextField phone;
-
-
-    ObservableList<String> options = FXCollections.observableArrayList(
-            "Option 1",
-            "Option 2",
-            "Option 3",
-            "Option 4"
+    ObservableList<String> optionTypeTrainingPlan = FXCollections.observableArrayList(
+            "1",
+            "2"
     );
+
     @FXML
-    ComboBox cbTypeTrainningPlan = new ComboBox(options);
+    private ComboBox cbTypeTrainingPlan = new ComboBox(optionTypeTrainingPlan);
+
+
 
     @FXML
     private void swichBack() throws IOException {
@@ -50,7 +50,7 @@ public class RegisterClienteController {
     }
 
     @FXML
-    private void registerClient() throws IOException {
+    private void registerClient()  {
         if (firstName.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("O Primeiro nome  encontra vazio");
@@ -87,7 +87,8 @@ public class RegisterClienteController {
     }
 
 
-//    cbTypeTrainningPlan.
+
+
 
 
 }

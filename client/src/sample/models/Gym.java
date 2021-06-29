@@ -19,6 +19,10 @@ public class Gym {
     }
 
 
+    public boolean addDesconto(Desconto desconto){
+        return false;
+    }
+
     public boolean verifyClient(Integer numberBI) {
         return Datasource.getInstance().queryClientNumberBI().contains(numberBI);
     }
