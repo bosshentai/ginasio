@@ -107,9 +107,9 @@
     <HBox
             translateX="50"
             translateY="150">
-        <ComboBox fx:id="cbTypeTrainningPlan" prefWidth="150.0" promptText="Tipo de treino">
+        <ChoiceBox fx:id="cbTypeTrainningPlan" prefWidth="150.0"  >
 
-        </ComboBox>
+        </ChoiceBox>
 
     </HBox>
 

@@ -34,14 +34,15 @@ public class RegisterClienteController {
 
     @FXML
     private TextField phone;
-    ObservableList<String> optionTypeTrainingPlan = FXCollections.observableArrayList(
-            "1",
-            "2"
-    );
 
-    @FXML
-    private ComboBox cbTypeTrainingPlan = new ComboBox(optionTypeTrainingPlan);
 
+
+//    @FXML
+//    private ComboBox<String> cbTypeTrainingPlan = new ComboBox<String>();
+//
+//    ObservableList<String> optionTypeTrainingPlan = cbTypeTrainingPlan.getItems();
+//
+//    optionTypeTrainingPlan.add("Java");
 
 
     @FXML
